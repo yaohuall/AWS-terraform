@@ -9,16 +9,14 @@ terraform {
   required_version = ">= 0.14.9"
 }
 
-provider "aws" {
-  profile = "default"
-  region  = "ap-northeast-1" // Tokyo
+#Resource to create s3 bucket
+resource "aws_s3_bucket" "tf_test_bucket" {
+  bucket = "yaohua-tf-test-bucket"
 }
 
-resource "aws_instance" "app_server" {
-  ami           = "ami-0590f3a1742b17914"
-  instance_type = "t2.micro"
-
-  tags = {
-    Name = "TerraformProvisionDemo"
-  }
+resource "aws_s3_bucket_acl" "tf_test_bucket_acl" {
+  bucket = aws_s3_bucket.tf_test_bucket.id
+  acl    = var.acl
 }
+
+
