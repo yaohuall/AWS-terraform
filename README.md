@@ -1,4 +1,5 @@
 # AWS-terraform-k8s-demo
+git remote name: terraform
 
 ## terraform init
 run `terraform init`
