@@ -2,7 +2,7 @@
 hands-on terraform code lauching AWS service <br>
 git remote name: terraform
 
-S3 - create AWS S3 with terraform
+S3 - create AWS S3 with terraform <br>
 kops - Dockerfile of kubectl, eksctl, kops environment
 
 ### simply run a AWS EKS using eksctl
