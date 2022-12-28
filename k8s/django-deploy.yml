@@ -1,0 +1,66 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: django-deployment
+spec:
+    replicas: 1
+    selector:
+        matchLabels:
+            component: django
+    template:
+        metadata:
+            labels:
+                component: django
+        spec:
+            volumes:
+                - name: testpath
+                  hostPath:
+                      path: /run/desktop/mnt/host/d/coding/Projects/kube-test/test-data
+                      type: DirectoryOrCreate
+            containers:
+                - name: django-container
+                  image: django:latest
+                  workingDir: /yaohua
+                  volumeMounts:
+                      - name: testpath
+                        mountPath: /yaohua
+                  ports:
+                      - containerPort: 8000
+                  command: ["bash", "-c"]
+                  args: ["django-admin startproject test; cd test; python manage.py makemigrations; python manage.py migrate; tail -f /dev/null"]
+                  env:
+                      - name: DJANGO_ALLOWED_HOSTS
+                        valueFrom:
+                          configMapKeyRef:
+                              name: app-variables
+                              key: DJANGO_ALLOWED_HOSTS
+                      - name: DB_ENGINE
+                        valueFrom:
+                          configMapKeyRef:
+                              name: app-variables
+                              key: DB_ENGINE
+                      - name: DB_DATABASE
+                        valueFrom:
+                          configMapKeyRef:
+                              name: app-variables
+                              key: DB_DATABASE
+                      - name: DB_USER
+                        valueFrom:
+                          configMapKeyRef:
+                              name: app-variables
+                              key: DB_USER
+                      - name: DB_PASSWORD
+                        valueFrom:
+                            configMapKeyRef:
+                                name: app-variables
+                                key: DB_PASSWORD
+                      - name: DB_HOST
+                        valueFrom:
+                          configMapKeyRef:
+                              name: app-variables
+                              key: DB_HOST
+                      - name: DB_PORT
+                        valueFrom:
+                          configMapKeyRef:
+                              name: app-variables
+                              key: DB_PORT
