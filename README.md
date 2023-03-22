@@ -11,11 +11,13 @@ Before initialize kubeadm - close swap and disabled setting of ctl in `/etc/cont
 CoreDNS crashloopback - add `nameserver 8.8.8.8` to `/etc/resolv.conf` 
 
 ## EKS install notes
-Kubectl connects to EKS cluster - `aws eks --region $(terraform output -raw region) update-kubeconfig --name $(terraform output -raw cluster_name)`
+Kubectl connects to EKS cluster 
+    aws eks --region $(terraform output -raw region) update-kubeconfig --name $(terraform output -raw cluster_name)
 
 ### simply run a AWS EKS using eksctl(not recommended)
     eksctl create cluster --name test-cluster --region us-east-2 --nodegroup-name linux-nodes --node-type t2.micro --nodes 2
   
 #### reference
-https://docs.aws.amazon.com/eks/latest/userguide/getting-started-eksctl.html
+https://docs.aws.amazon.com/eks/latest/userguide/getting-started-eksctl.html <br>
+https://developer.hashicorp.com/terraform/tutorials/kubernetes/eks <br>
 
