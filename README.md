@@ -12,7 +12,7 @@ CoreDNS crashloopback - add `nameserver 8.8.8.8` to `/etc/resolv.conf`
 
 ## EKS install notes
 Kubectl connects to EKS cluster <br>
-`aws eks --region $(terraform output -raw region) update-kubeconfig --name $(terraform output -raw cluster_name)`
+    aws eks --region $(terraform output -raw region) update-kubeconfig --name $(terraform output -raw cluster_name)
 
 ### simply run a AWS EKS using eksctl(not recommended)
     eksctl create cluster --name test-cluster --region us-east-2 --nodegroup-name linux-nodes --node-type t2.micro --nodes 2
