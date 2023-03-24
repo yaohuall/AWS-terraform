@@ -14,6 +14,10 @@ CoreDNS crashloopback - add `nameserver 8.8.8.8` to `/etc/resolv.conf`
 Kubectl connects to EKS cluster <br>
 `aws eks --region $(terraform output -raw region) update-kubeconfig --name $(terraform output -raw cluster_name)`
 
+## EKS settings
+For EKS IAM role and policy settings <br>
+`https://catalog.us-east-1.prod.workshops.aws/workshops/4eab6682-09b2-43e5-93d4-1f58fd6cff6e/en-US/setupawsdeployment/iamroles`
+
 ### simply run a AWS EKS using eksctl(not recommended)
     eksctl create cluster --name test-cluster --region us-east-2 --nodegroup-name linux-nodes --node-type t2.micro --nodes 2
   
