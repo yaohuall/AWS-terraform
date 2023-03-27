@@ -14,10 +14,10 @@ CoreDNS crashloopback - add `nameserver 8.8.8.8` to `/etc/resolv.conf`
 Kubectl connects to EKS cluster <br>
 `aws eks --region $(terraform output -raw region) update-kubeconfig --name $(terraform output -raw cluster_name)`
 
-### EKS settings reference
-For EKS IAM role and policy settings <br>
+## EKS settings reference
+### For EKS IAM role and policy settings <br>
 `https://catalog.us-east-1.prod.workshops.aws/workshops/4eab6682-09b2-43e5-93d4-1f58fd6cff6e/en-US/setupawsdeployment/iamroles`
-For EKS public loadbalancer <br>
+### For EKS public loadbalancer <br>
 `https://repost.aws/zh-Hant/knowledge-center/eks-vpc-subnet-discovery`
 
 #### reference
