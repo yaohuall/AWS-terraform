@@ -19,6 +19,8 @@ Kubectl connects to EKS cluster <br>
 `https://catalog.us-east-1.prod.workshops.aws/workshops/4eab6682-09b2-43e5-93d4-1f58fd6cff6e/en-US/setupawsdeployment/iamroles`
 ### For EKS public loadbalancer <br>
 `https://repost.aws/zh-Hant/knowledge-center/eks-vpc-subnet-discovery`
+### For EKS EMR pricing policy
+`https://aws.amazon.com/blogs/big-data/amazon-emr-on-amazon-eks-provides-up-to-61-lower-costs-and-up-to-68-performance-improvement-for-spark-workloads/`
 
 #### reference
 https://docs.aws.amazon.com/eks/latest/userguide/getting-started-eksctl.html <br>
