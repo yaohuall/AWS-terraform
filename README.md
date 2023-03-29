@@ -16,7 +16,7 @@ Kubectl connects to EKS cluster <br>
 
 ## EKS settings reference
 ### For EKS IAM role and policy settings <br>
-`https://catalog.us-east-1.prod.workshops.aws/workshops/4eab6682-09b2-43e5-93d4-1f58fd6cff6e/en-US/setupawsdeployment/iamroles`
+https://catalog.us-east-1.prod.workshops.aws/workshops/4eab6682-09b2-43e5-93d4-1f58fd6cff6e/en-US/setupawsdeployment/iamroles
 ### For EKS public loadbalancer <br>
 https://repost.aws/zh-Hant/knowledge-center/eks-vpc-subnet-discovery
 ### For EKS EMR pricing policy
