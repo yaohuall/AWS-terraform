@@ -25,4 +25,4 @@ Kubectl connects to EKS cluster <br>
 #### reference
 https://docs.aws.amazon.com/eks/latest/userguide/getting-started-eksctl.html <br>
 https://developer.hashicorp.com/terraform/tutorials/kubernetes/eks <br>
-
+https://aws.github.io/aws-eks-best-practices/networking/subnets/
