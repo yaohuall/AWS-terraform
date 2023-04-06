@@ -31,4 +31,7 @@ https://aws.amazon.com/blogs/big-data/amazon-emr-on-amazon-eks-provides-up-to-61
 #### reference
 https://docs.aws.amazon.com/eks/latest/userguide/getting-started-eksctl.html <br>
 https://developer.hashicorp.com/terraform/tutorials/kubernetes/eks <br>
-https://aws.github.io/aws-eks-best-practices/networking/subnets/
+https://aws.github.io/aws-eks-best-practices/networking/subnets/ <br>
+https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/security_group <br>
+https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/default_security_group <br>
+
