@@ -31,6 +31,9 @@ https://repost.aws/zh-Hant/knowledge-center/eks-vpc-subnet-discovery
 ### For EKS EMR pricing policy
 https://aws.amazon.com/blogs/big-data/amazon-emr-on-amazon-eks-provides-up-to-61-lower-costs-and-up-to-68-performance-improvement-for-spark-workloads/
 
+## EMR using terraform reference
+https://github.com/terraform-aws-modules/terraform-aws-emr/tree/v1.0.0/examples/serverless-cluster <br>
+
 #### reference
 https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/RootDeviceStorage.html <br>
 https://developer.hashicorp.com/terraform/tutorials/kubernetes/eks <br>
