@@ -2,7 +2,7 @@
 
 # resource "aws_subnet" "private_ap_east_1a" {
 #   vpc_id            = aws_vpc.main.id
-#   cidr_block        = "10.0.0.0/19"
+#   cidr_block        = "10.0.96.0/26"
 #   availability_zone = "ap-east-1a"
 
 #   tags = {
@@ -14,7 +14,7 @@
 
 # resource "aws_subnet" "private_ap_east_1b" {
 #   vpc_id            = aws_vpc.main.id
-#   cidr_block        = "10.0.32.0/19"
+#   cidr_block        = "10.0.128.0/26"
 #   availability_zone = "ap-east-1b"
 
 #   tags = {
