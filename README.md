@@ -1,4 +1,4 @@
-# AWS-terraform-k8s-demo
+# AWS-terraform-minimal-implementation
 hands-on terraform code lauching AWS services<br>
 
 S3 - create AWS S3 with terraform <br>
