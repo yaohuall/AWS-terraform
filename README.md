@@ -1,10 +1,12 @@
 # AWS-terraform-k8s-demo
-hands-on terraform code lauching AWS service + some k8s demo<br>
+hands-on terraform code lauching AWS services<br>
 
 S3 - create AWS S3 with terraform <br>
 kops - Dockerfile of kubectl, eksctl, kops environment <br>
 k8s - psql + django k8s demo <br>
 eks - create eks with terraform <br>
+
+**Change AWS region using aws cli `--region` tag**
 
 ## k8s install notes
 Before initialize kubeadm - close swap and disabled setting of ctl in `/etc/containerd/config.toml` <br>
