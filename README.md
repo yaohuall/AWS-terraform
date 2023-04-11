@@ -10,6 +10,9 @@ eks - create eks with terraform <br>
 Before initialize kubeadm - close swap and disabled setting of ctl in `/etc/containerd/config.toml` <br>
 CoreDNS crashloopback - add `nameserver 8.8.8.8` to `/etc/resolv.conf` 
 
+## EC2 config
+**EBS root volume**: When you launch an instance, the root device volume contains the image used to boot the instance. When we introduced Amazon EC2, all AMIs were backed by Amazon EC2 instance store, which means the root device for an instance launched from the AMI is an instance store volume created from a template stored in Amazon S3. After we introduced Amazon EBS, we introduced AMIs that are backed by Amazon EBS. This means that the root device for an instance launched from the AMI is an Amazon EBS volume created from an Amazon EBS snapshot.
+
 ## EKS install notes
 Kubectl connects to EKS cluster <br>
 `aws eks --region $(terraform output -raw region) update-kubeconfig --name $(terraform output -raw cluster_name)`
@@ -29,9 +32,10 @@ https://repost.aws/zh-Hant/knowledge-center/eks-vpc-subnet-discovery
 https://aws.amazon.com/blogs/big-data/amazon-emr-on-amazon-eks-provides-up-to-61-lower-costs-and-up-to-68-performance-improvement-for-spark-workloads/
 
 #### reference
-https://docs.aws.amazon.com/eks/latest/userguide/getting-started-eksctl.html <br>
+https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/RootDeviceStorage.html <br>
 https://developer.hashicorp.com/terraform/tutorials/kubernetes/eks <br>
 https://aws.github.io/aws-eks-best-practices/networking/subnets/ <br>
 https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/security_group <br>
 https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/default_security_group <br>
+
 
