@@ -3,7 +3,6 @@ hands-on terraform code lauching AWS services<br>
 
 S3 - create AWS S3 with terraform <br>
 kops - Dockerfile of kubectl, eksctl, kops environment <br>
-k8s - psql + django k8s demo <br>
 eks - create eks with terraform <br>
 
 **Change AWS region using aws cli `--region` tag**
