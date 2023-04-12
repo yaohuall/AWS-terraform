@@ -44,6 +44,8 @@ https://aws.amazon.com/blogs/big-data/amazon-emr-on-amazon-eks-provides-up-to-61
 https://github.com/terraform-aws-modules/terraform-aws-emr/tree/v1.0.0/examples/serverless-cluster <br>
 2. **EMR serverless iam role & submit config** <br>
 https://docs.aws.amazon.com/emr/latest/EMR-Serverless-UserGuide/jobs-spark.html <br>
+3. **Use Python packages** <br>
+https://docs.aws.amazon.com/emr/latest/EMR-Serverless-UserGuide/using-python-libraries.html <br>
 
 #### reference
 https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/RootDeviceStorage.html <br>
