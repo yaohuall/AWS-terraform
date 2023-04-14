@@ -82,7 +82,8 @@ https://docs.aws.amazon.com/emr/latest/EMR-Serverless-UserGuide/using-python-lib
 https://docs.aws.amazon.com/secretsmanager/latest/userguide/integrating_how-services-use-secrets_sqlworkbench.html
 
 ## AWS secret manager reference
-https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html
+https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html <br>
+https://blog.gruntwork.io/a-comprehensive-guide-to-managing-secrets-in-your-terraform-code-1d586955ace1
 
 #### reference
 https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/RootDeviceStorage.html <br>
