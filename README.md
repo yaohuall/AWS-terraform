@@ -24,6 +24,44 @@ In EKS, there are three types of sg: <br>
 2. **customized sg**: can be edited in Terraform, `resource "aws_security_group"`
 3. **primary sg**: created after launch of cluster, the description of this sg is `EKS created security group applied to ENI that is attached to EKS Control Plane master nodes, as well as any managed workloads.` this is the sg for master-external communication. Can not be edited in Terraform, but can be edited in output of Terraform `aws_eks_cluster.cluster.vpc_config[0].cluster_security_group_id`
 
+## EMR submit a test file
+### copy the test file to your bucket
+    aws s3 cp s3://us-east-1.elasticmapreduce/emr-containers/samples/wordcount/scripts/wordcount.py s3://{your-bucket-name}/scripts/ --region us-east-1
+
+### submit your spark job to cluster
+    aws emr-serverless start-job-run --application-id {your-application-id} --execution-role-arn {your-emr-role-arn} --name "spark-test" --job-driver '{"sparkSubmit":{"entryPoint":"s3://{your-bucket-name}/scripts/wordcount.py", "entryPointArguments":["s3://{your-bucket-name}/output"], "sparkSubmitParameters": "--conf spark.executor.cores=1 --conf spark.executor.memory=4g --conf spark.driver.cores=1 --conf spark.driver.memory=4g --conf spark.executor.instances=1"}}' --region {your-region}
+
+### AWS secret manager - get secret in your App
+    import boto3
+    from botocore.exceptions import ClientError
+
+
+    def get_secret():
+
+        secret_name = "data/prod/redshift"
+        region_name = "us-east-2"
+
+        # Create a Secrets Manager client
+        session = boto3.session.Session()
+        client = session.client(
+            service_name='secretsmanager',
+            region_name=region_name
+        )
+
+        try:
+            get_secret_value_response = client.get_secret_value(
+                SecretId=secret_name
+            )
+        except ClientError as e:
+            # For a list of exceptions thrown, see
+            # https://docs.aws.amazon.com/secretsmanager/latest/apireference/API_GetSecretValue.html
+            raise e
+
+        # Decrypts secret using the associated KMS key.
+        secret = get_secret_value_response['SecretString']
+
+        # Your code goes here.
+
 ## EKS settings reference
 1. **For EKS IAM role and policy settings** <br>
 https://catalog.us-east-1.prod.workshops.aws/workshops/4eab6682-09b2-43e5-93d4-1f58fd6cff6e/en-US/setupawsdeployment/iamroles
@@ -31,13 +69,6 @@ https://catalog.us-east-1.prod.workshops.aws/workshops/4eab6682-09b2-43e5-93d4-1
 https://repost.aws/zh-Hant/knowledge-center/eks-vpc-subnet-discovery
 3. **For EKS EMR pricing policy** <br>
 https://aws.amazon.com/blogs/big-data/amazon-emr-on-amazon-eks-provides-up-to-61-lower-costs-and-up-to-68-performance-improvement-for-spark-workloads/
-
-## EMR submit a test file
-### copy the test file to your bucket
-    aws s3 cp s3://us-east-1.elasticmapreduce/emr-containers/samples/wordcount/scripts/wordcount.py s3://{your-bucket-name}/scripts/ --region us-east-1
-
-### submit your spark job to cluster
-    aws emr-serverless start-job-run --application-id {your-application-id} --execution-role-arn {your-emr-role-arn} --name "spark-test" --job-driver '{"sparkSubmit":{"entryPoint":"s3://{your-bucket-name}/scripts/wordcount.py", "entryPointArguments":["s3://{your-bucket-name}/output"], "sparkSubmitParameters": "--conf spark.executor.cores=1 --conf spark.executor.memory=4g --conf spark.driver.cores=1 --conf spark.driver.memory=4g --conf spark.executor.instances=1"}}' --region {your-region}
 
 ## EMR serverless reference
 1. **using terraform** <br> 
@@ -49,6 +80,9 @@ https://docs.aws.amazon.com/emr/latest/EMR-Serverless-UserGuide/using-python-lib
 
 ## AWS redshift query editor v2 reference
 https://docs.aws.amazon.com/secretsmanager/latest/userguide/integrating_how-services-use-secrets_sqlworkbench.html
+
+## AWS secret manager reference
+https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html
 
 #### reference
 https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/RootDeviceStorage.html <br>
