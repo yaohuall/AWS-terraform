@@ -47,6 +47,9 @@ https://docs.aws.amazon.com/emr/latest/EMR-Serverless-UserGuide/jobs-spark.html 
 3. **Use Python packages** <br>
 https://docs.aws.amazon.com/emr/latest/EMR-Serverless-UserGuide/using-python-libraries.html <br>
 
+## AWS redshift query editor v2 reference
+https://docs.aws.amazon.com/secretsmanager/latest/userguide/integrating_how-services-use-secrets_sqlworkbench.html
+
 #### reference
 https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/RootDeviceStorage.html <br>
 https://developer.hashicorp.com/terraform/tutorials/kubernetes/eks <br>
