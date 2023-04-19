@@ -85,6 +85,10 @@ https://docs.aws.amazon.com/emr/latest/EMR-Serverless-UserGuide/jobs-spark.html 
 https://docs.aws.amazon.com/emr/latest/EMR-Serverless-UserGuide/using-python-libraries.html <br>
 
 # AWS redshift
+## Time zone
+You can't set the timezone configuration parameter by using a cluster parameter group. The time zone can be set only for the current session by using a SET command. To set the time zone for all sessions run by a specific database user, use the ALTER USER command. ALTER USER … SET TIMEZONE changes the time zone for subsequent sessions, not for the current session.
+https://docs.aws.amazon.com/redshift/latest/dg/r_timezone_config.html
+
 ## AWS redshift parameter group & configuration
 https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html <br>
 https://docs.aws.amazon.com/redshift/latest/dg/cm_chap_ConfigurationRef.html
