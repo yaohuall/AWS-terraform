@@ -14,6 +14,41 @@ CoreDNS crashloopback - add `nameserver 8.8.8.8` to `/etc/resolv.conf`
 ## EC2 config
 **EBS root volume**: When you launch an instance, the root device volume contains the image used to boot the instance. When we introduced Amazon EC2, all AMIs were backed by Amazon EC2 instance store, which means the root device for an instance launched from the AMI is an instance store volume created from a template stored in Amazon S3. After we introduced Amazon EBS, we introduced AMIs that are backed by Amazon EBS. This means that the root device for an instance launched from the AMI is an Amazon EBS volume created from an Amazon EBS snapshot.
 
+# AWS S3
+### Use resource based policy(bucket policy) to give permission to principals
+    data "aws_iam_policy_document" "allow_audit_logging" {
+      statement {
+        # sid    = "Put bucket policy needed for audit logging"
+        effect = "Allow"
+
+        principals {
+          type        = "AWS"
+          identifiers = [data.aws_redshift_service_account.main.arn]
+        }
+
+        actions   = ["s3:PutObject"]
+        resources = ["${aws_s3_bucket.redshift_logging_bucket.arn}/*"]
+      }
+
+      statement {
+        # sid    = "Get bucket policy needed for audit logging"
+        effect = "Allow"
+
+        principals {
+          type = "AWS"
+          identifiers = [
+            data.aws_redshift_service_account.main.arn,
+          ]
+        }
+
+        actions   = ["s3:GetBucketAcl"]
+        resources = [aws_s3_bucket.redshift_logging_bucket.arn]
+      }
+    }
+
+### S3 bucket policy reference
+https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-policy-language-overview.html
+
 # AWS EKS
 ## EKS install notes
 Kubectl connects to EKS cluster <br>
