@@ -85,6 +85,9 @@ https://docs.aws.amazon.com/emr/latest/EMR-Serverless-UserGuide/jobs-spark.html 
 https://docs.aws.amazon.com/emr/latest/EMR-Serverless-UserGuide/using-python-libraries.html <br>
 
 # AWS redshift
+## AWS redshift parameter group
+https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html
+
 ## AWS redshift distribution styles
 https://docs.aws.amazon.com/redshift/latest/dg/c_choosing_dist_sort.html
 
