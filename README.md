@@ -69,6 +69,12 @@ https://repost.aws/zh-Hant/knowledge-center/eks-vpc-subnet-discovery
 https://aws.amazon.com/blogs/big-data/amazon-emr-on-amazon-eks-provides-up-to-61-lower-costs-and-up-to-68-performance-improvement-for-spark-workloads/
 
 # AWS EMR
+## AWS EMR Studio
+Amazon EMR Studio uses two security groups to control network traffic between Workspaces in the Studio and an attached Amazon EMR cluster running on Amazon EC2:
+
+- **An engine security group that uses port 18888 to communicate with an attached Amazon EMR cluster running on Amazon EC2.
+
+- A Workspace security group associated with the Workspaces in a Studio. This security group includes an outbound HTTPS rule to allow the Workspace to route traffic to the internet and must allow outbound traffic to the internet on port 443 to enable linking Git repositories to a Workspace.
 ## EMR submit a test file
 ### copy the test file to your bucket
     aws s3 cp s3://us-east-1.elasticmapreduce/emr-containers/samples/wordcount/scripts/wordcount.py s3://{your-bucket-name}/scripts/ --region us-east-1
